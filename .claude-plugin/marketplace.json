@@ -1,7 +1,7 @@
 {
   "name": "team-knowledge",
   "owner": {
-    "name": "Zimetrics"
+    "name": "Dongo"
   },
   "metadata": {
     "description": "Internal Claude Code plugins for sharing team context."
