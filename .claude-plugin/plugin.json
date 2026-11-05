@@ -1,0 +1,9 @@
+{
+  "name": "team-knowledge",
+  "version": "0.1.0",
+  "description": "Share session context with your team: capture decisions, gotchas and conventions from Claude sessions into docs/knowledge/ via reviewed PRs, and recall them in later sessions.",
+  "author": {
+    "name": "Zimetrics"
+  },
+  "keywords": ["knowledge", "documentation", "team", "context"]
+}

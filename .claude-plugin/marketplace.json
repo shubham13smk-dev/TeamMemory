@@ -1,0 +1,16 @@
+{
+  "name": "team-knowledge",
+  "owner": {
+    "name": "Zimetrics"
+  },
+  "metadata": {
+    "description": "Internal Claude Code plugins for sharing team context."
+  },
+  "plugins": [
+    {
+      "name": "team-knowledge",
+      "source": "./",
+      "description": "Capture and recall team context from Claude Code sessions."
+    }
+  ]
+}
