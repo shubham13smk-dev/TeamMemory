@@ -1,8 +1,12 @@
+---
+audience: technical
+owner: Developers
+---
 # Gotchas
 
 <!--
-One topic per file. Keep it current: replace outdated statements instead of adding new ones.
-Each entry is one of: Decision (and why), Gotcha, Rejected approach (and why), Convention.
+Non-obvious traps that don't belong to a single topic, and how to avoid them.
+Keep it current: replace outdated statements instead of adding new ones.
 Put "_Updated YYYY-MM-DD by <name> — related: <paths>_" under each section you change.
 -->
 

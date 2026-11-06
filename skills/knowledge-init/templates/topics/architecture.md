@@ -1,8 +1,12 @@
+---
+audience: technical
+owner: Developers
+---
 # Architecture
 
 <!--
-One topic per file. Keep it current: replace outdated statements instead of adding new ones.
-Each entry is one of: Decision (and why), Gotcha, Rejected approach (and why), Convention.
+How the system fits together and the major technical design decisions, with the reason for each.
+Keep it current: replace outdated statements instead of adding new ones.
 Put "_Updated YYYY-MM-DD by <name> — related: <paths>_" under each section you change.
 -->
 

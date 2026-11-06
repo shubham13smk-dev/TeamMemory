@@ -1,8 +1,12 @@
+---
+audience: {{AUDIENCE}}
+owner: {{OWNER}}
+---
 # {{TOPIC}}
 
 <!--
-One topic per file. Keep it current: replace outdated statements instead of adding new ones.
-Each entry is one of: Decision (and why), Gotcha, Rejected approach (and why), Convention.
+{{GUIDE}}
+Keep it current: replace outdated statements instead of adding new ones.
 Put "_Updated YYYY-MM-DD by <name> — related: <paths>_" under each section you change.
 -->
 

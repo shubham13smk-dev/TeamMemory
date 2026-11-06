@@ -15,8 +15,9 @@ description: Read the team knowledge base in docs/knowledge/ and summarise what 
    - **Without an argument at the start of a session, or when asked for onboarding:** read every topic file.
 
 3. **Answer.**
-   - For a task: list only the notes that change how the task should be done, grouped as **Must follow** (decisions, conventions), **Watch out** (gotchas) and **Don't try** (rejected approaches). Say how each one affects the plan, e.g. "→ I'll put refund processing in a background job."
-   - For onboarding: one short paragraph per topic covering the most important points, followed by a list of the topic files.
+   - For a task: list only the notes that change how the task should be done, grouped as **Must follow** (business rules, decisions, conventions), **Watch out** (gotchas), **Don't try** (rejected approaches) and **Unresolved** (related entries in `open-questions.md`). Say how each one affects the plan, e.g. "→ I'll put refund processing in a background job."
+   - For onboarding: start with `overview.md` and `features-and-scope.md`, then one short paragraph per remaining topic, followed by a list of the topic files.
+   - Mention any `⚠ Needs PM/BA confirmation` flag on a note you rely on.
    - Cite the file for each point, e.g. `(payments.md)`.
    - Mention the `_Updated …_` date when a note looks old relative to the code it describes.
 

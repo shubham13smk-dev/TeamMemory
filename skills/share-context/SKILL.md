@@ -1,6 +1,6 @@
 ---
 name: share-context
-description: Save what was learned in this Claude session (decisions and why, gotchas, rejected approaches, conventions) into the team knowledge base in docs/knowledge/, editing topic files in place, and open a PR for review. Use when the user runs /share-context or asks to share context, save this for the team, document this decision, or update team knowledge.
+description: Save what was learned in this Claude session (technical and product decisions and why, business rules, scope changes, terms, open questions, gotchas, rejected approaches, conventions) into the team knowledge base in docs/knowledge/, editing topic files in place, and open a PR for review. Use when the user runs /share-context or asks to share context, save this for the team, document this decision, or update team knowledge.
 ---
 
 # Share session context with the team
@@ -17,19 +17,26 @@ Turn what was learned in this session into durable team knowledge. The knowledge
 ### 2. Extract candidate items from this session
 Review the conversation and the changes made in it (`git diff`, `git status`, recent commits on this branch). Look for:
 
-| Type | What qualifies |
-|---|---|
-| **Decision** | A choice that shapes future work, with the reason behind it |
-| **Gotcha** | Something non-obvious that broke or nearly broke, and how to avoid it |
-| **Rejected** | An approach that was tried or considered and dropped, and why |
-| **Convention** | A pattern or rule the team should follow from now on |
+| Type | What qualifies | Usual topic |
+|---|---|---|
+| **Business rule** | A rule the product must follow (a limit, calculation, game rule, eligibility…), with its reason | `business-rules.md` |
+| **Scope** | A feature added, removed, or deliberately left out | `features-and-scope.md` |
+| **Product decision** | A choice about how the product behaves for users, with the reason | `product-decisions.md` |
+| **Term** | A word that now has a specific meaning in this project | `glossary.md` |
+| **Open question** | A product question the session couldn't settle, or an assumption that needs a PM / BA to confirm | `open-questions.md` |
+| **Decision** | A technical choice that shapes future work, with the reason | `architecture.md` |
+| **Gotcha** | Something non-obvious that broke or nearly broke, and how to avoid it | `gotchas.md` or the area's topic |
+| **Rejected** | An approach that was tried or considered and dropped, and why | the area's topic |
+| **Convention** | A pattern or rule the team should follow from now on | `conventions.md` |
+
+If an item has a business side and a technical side, split it: the rule in plain language in the business topic, the implementation detail in the technical topic.
 
 **Leave out** anything a teammate could learn from reading the code or the git log: what a function does, a list of changed files, refactor details, typo fixes, dependency bumps, or step-by-step narration of the session. Also leave out anything that was only true temporarily (debugging state, local machine setup quirks for one person).
 
 If nothing qualifies, say: "Nothing in this session needs team context — the changes are self-explanatory from the diff." Then stop. This is a normal, good outcome.
 
 ### 3. Ask the user to confirm
-Show a numbered list. For each item give the type, a one-line statement including the *why*, and the target topic file. Also say what you left out and why, in one line. Example:
+Show a numbered list. For each item give the type, a one-line statement including the *why*, and the target topic file. Business items should read as a PM would say them. Also say what you left out and why, in one line. Example:
 
 ```
 I found 3 things worth sharing with the team:
@@ -58,7 +65,11 @@ For each confirmed item:
 - **If it contradicts or updates an existing statement, replace that statement.** Tell the user what you replaced. Never leave two conflicting versions. Never add a dated changelog entry.
 - If an existing statement is now obsolete because of this session's work, remove it.
 - Write tersely: short bullets, the fact plus the reason. Use `❌` to mark rejected approaches.
-- Create a new topic file only when no existing topic fits. Use `kebab-case.md`, start it with `# <Topic>`, and add a row to the table in `INDEX.md`.
+- **Business topics** (frontmatter `audience: business`) are read by PMs and BAs: write in plain language, with no function, variable or file names in the bullets. File paths belong only in the `related:` line.
+- **Business topics are owned by the PM / BA.** Add to them, but don't rewrite or delete an existing business statement. If the session contradicts one, keep it and add an entry to `open-questions.md` instead.
+- When an open question is answered in this session, record the answer in the right topic and remove the question from `open-questions.md`.
+- If the target topic file doesn't exist (an older knowledge base), create it from `../knowledge-init/templates/topics/<name>.md` and add its row to the matching table in `INDEX.md`.
+- Create a new custom topic only when no existing topic fits. Use `kebab-case.md` from `../knowledge-init/templates/topic.md` (fill in the title, `audience`, `owner` and guide), and add a row to the matching table in `INDEX.md`.
 - Below each section you changed, set a single line (replace any previous one for that section):
   `_Updated YYYY-MM-DD by <git config user.name> — related: <repo-relative paths>_`
 

@@ -18,9 +18,9 @@ Run once per code repository. Templates live in the `templates/` folder next to 
 
 3. **Create the knowledge base.**
    - Copy `templates/INDEX.md` to `docs/knowledge/INDEX.md`.
-   - Copy every file in `templates/topics/` into `docs/knowledge/`.
+   - Copy every file in `templates/topics/` into `docs/knowledge/`. There are business topics (owned by the PM / BA: overview, features and scope, business rules, glossary, product decisions, open questions) and technical topics (owned by developers). Each file's frontmatter records its `audience` and `owner`.
    - Replace `{{DATE}}` with today's date (YYYY-MM-DD) and `{{AUTHOR}}` with `git config user.name`.
-   - Ask the user (one question) whether they want extra starter topics for this repo's main domains, e.g. `payments`, `auth`. For each one, create a file from `templates/topic.md` and add a line to `INDEX.md`. If they don't answer or decline, skip this.
+   - Ask the user (one question) whether they want extra starter topics for this repo's main domains, e.g. `payments`, `auth`. For each one, create a file from `templates/topic.md` (fill in `{{TOPIC}}`, `{{AUDIENCE}}`, `{{OWNER}}` and a one-line `{{GUIDE}}`) and add a row to the matching table in `INDEX.md`. If they don't answer or decline, skip this.
 
 4. **Point CLAUDE.md at it.**
    - If `CLAUDE.md` exists at the repo root, append the contents of `templates/claude-md-snippet.md` to the end, unless a section titled `## Team knowledge` is already there.
@@ -32,7 +32,9 @@ Run once per code repository. Templates live in the `templates/` folder next to 
    - If the `gh` CLI is available and authenticated (`gh auth status`), run `gh pr create --title "Set up team knowledge base" --body "<short explanation of docs/knowledge/ and the /share-context workflow>"`.
    - Otherwise, print the compare URL from the push output (or `<remote web URL>/compare/knowledge/init`) and tell the user to open the PR there.
 
-6. **Report back** with the files created, the PR link, and the next step: after merging, anyone can run `/team-knowledge:share-context` at the end of a session.
+6. **Report back** with the files created, the PR link, and the next steps:
+   - If the repo already has code, run `/team-knowledge:knowledge-bootstrap` so Claude drafts the overview, scope, business rules and other foundation topics from the codebase for the PM / BA to confirm.
+   - After merging, anyone can run `/team-knowledge:share-context` at the end of a session.
 
 ## Rules
 
