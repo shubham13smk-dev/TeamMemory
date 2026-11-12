@@ -18,6 +18,7 @@ description: Read the team knowledge base in docs/knowledge/ and summarise what 
    - For a task: list only the notes that change how the task should be done, grouped as **Must follow** (business rules, decisions, conventions), **Watch out** (gotchas), **Don't try** (rejected approaches) and **Unresolved** (related entries in `open-questions.md`). Say how each one affects the plan, e.g. "→ I'll put refund processing in a background job."
    - For onboarding: start with `overview.md` and `features-and-scope.md`, then one short paragraph per remaining topic, followed by a list of the topic files.
    - Mention any `⚠ Needs PM/BA confirmation` flag on a note you rely on.
+   - A note ending in `⏳ Decided …, not built yet` is a decision the product doesn't implement yet. Treat it as a requirement for work in that area (often it *is* the task), not as a description of the current code.
    - Cite the file for each point, e.g. `(payments.md)`.
    - Mention the `_Updated …_` date when a note looks old relative to the code it describes.
 

@@ -68,6 +68,7 @@ For each confirmed item:
 - **Business topics** (frontmatter `audience: business`) are read by PMs and BAs: write in plain language, with no function, variable or file names in the bullets. File paths belong only in the `related:` line.
 - **Business topics are owned by the PM / BA.** Add to them, but don't rewrite or delete an existing business statement. If the session contradicts one, keep it and add an entry to `open-questions.md` instead.
 - When an open question is answered in this session, record the answer in the right topic and remove the question from `open-questions.md`.
+- A statement ending in `⏳ Decided YYYY-MM-DD, not built yet` was decided (often by the PM / BA in a meeting) but isn't in the product yet. When this session builds it, remove the `⏳ …` marker and adjust the statement to match what was built; if what was built differs from the decision, keep the statement as it is and add an entry to `open-questions.md` instead. This is the one change you may make to a business statement without asking.
 - If the target topic file doesn't exist (an older knowledge base), create it from `../knowledge-init/templates/topics/<name>.md` and add its row to the matching table in `INDEX.md`.
 - Create a new custom topic only when no existing topic fits. Use `kebab-case.md` from `../knowledge-init/templates/topic.md` (fill in the title, `audience`, `owner` and guide), and add a row to the matching table in `INDEX.md`.
 - Below each section you changed, set a single line (replace any previous one for that section):
